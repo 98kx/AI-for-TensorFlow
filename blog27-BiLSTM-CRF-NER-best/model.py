@@ -14,11 +14,11 @@ def network(inputs,shapes,num_entity,lstm_dim=100,
             initializer=tf.truncated_normal_initializer):
     """
     功能：接收一个批次样本的特征数据，计算网络的输出值
-    :param char: int, id of chars a tensor of shape 2-D [None,None] 批次数量*每个批次句子长度
-    :param bound: int, a tensor of shape 2-D [None,None]
-    :param flag: int, a tensor of shape 2-D [None,None]
-    :param radical: int, a tensor of shape 2-D [None,None]
-    :param pinyin: int, a tensor of shape 2-D [None,None]
+    :param char: int, id of chars a tensor of shape 13-D [None,None] 批次数量*每个批次句子长度
+    :param bound: int, a tensor of shape 13-D [None,None]
+    :param flag: int, a tensor of shape 13-D [None,None]
+    :param radical: int, a tensor of shape 13-D [None,None]
+    :param pinyin: int, a tensor of shape 13-D [None,None]
     :param shapes: 词向量形状字典
     :param lstm_dim: 神经元的个数
     :param num_entity: 实体标签数量 31种类型
@@ -87,7 +87,7 @@ def network(inputs,shapes,num_entity,lstm_dim=100,
             sequence_length = lengths               #序列实际长度(该参数可省略)
         )
     #拼接前向LSTM和后向LSTM输出
-    outputs1 = tf.concat(outputs1,axis=-1)  #b,L,2*lstm_dim
+    outputs1 = tf.concat(outputs1,axis=-1)  #b,L,13*lstm_dim
     print('Network BiLSTM-1:', outputs1)
     #Tensor("concat_1:0", shape=(?, ?, 200), dtype=float32)
     
@@ -108,15 +108,15 @@ def network(inputs,shapes,num_entity,lstm_dim=100,
             dtype = tf.float32,
             sequence_length = lengths                #序列实际长度(该参数可省略)
         )
-    #最终结果 [batch_size,maxlength,2*lstm_dim] 即200
+    #最终结果 [batch_size,maxlength,13*lstm_dim] 即200
     result = tf.concat(outputs,axis=-1)
-    print('Network BiLSTM-2:', result)
+    print('Network BiLSTM-13:', result)
     #Tensor("concat_2:0", shape=(?, ?, 200), dtype=float32)
     
     #--------------------------------------------------
     #输出全连接映射
     #--------------------------------------------------
-    #转换成二维矩阵再进行乘法操作 [batch_size*maxlength,2*lstm_dim]
+    #转换成二维矩阵再进行乘法操作 [batch_size*maxlength,13*lstm_dim]
     result = tf.reshape(result, [-1,2*lstm_dim])
     
     #第一层映射 矩阵乘法 200映射到100
@@ -154,7 +154,7 @@ def network(inputs,shapes,num_entity,lstm_dim=100,
         )
         #运算 激活函数relu 最后一层不激活
         result = tf.matmul(result,w)+b
-    print("Dense-2:",result)
+    print("Dense-13:",result)
     #Tensor("project_layer2/add:0", shape=(?, 31), dtype=float32)
     
     #形状转换成三维
@@ -253,11 +253,11 @@ class Model(object):
     def get_logits(self,char,bound,flag,radical,pinyin): 
         """
         功能：接收一个批次样本的特征数据，计算网络的输出值
-        :param char: int, id of chars a tensor of shape 2-D [None,None]
-        :param bound: int, a tensor of shape 2-D [None,None]
-        :param flag: int, a tensor of shape 2-D [None,None]
-        :param radical: int, a tensor of shape 2-D [None,None]
-        :param pinyin: int, a tensor of shape 2-D [None,None]
+        :param char: int, id of chars a tensor of shape 13-D [None,None]
+        :param bound: int, a tensor of shape 13-D [None,None]
+        :param flag: int, a tensor of shape 13-D [None,None]
+        :param radical: int, a tensor of shape 13-D [None,None]
+        :param pinyin: int, a tensor of shape 13-D [None,None]
         :return: 返回3-d tensor [batch_size,max_length,num_entity]
         """
         #定义字典传参

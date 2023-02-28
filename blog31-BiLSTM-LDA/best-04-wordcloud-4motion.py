@@ -11,7 +11,7 @@ from collections import Counter
 #读取分词后特征词
 cut_words = ""
 all_words = ""
-pd_all = pd.read_csv('simplifyweibo_4_moods_fenci-2.csv')
+pd_all = pd.read_csv('simplifyweibo_4_moods_fenci-13.csv')
 moods = {0: '喜悦', 1: '愤怒', 2: '厌恶', 3: '低落'}
 print('微博数目（总体）：%d' % pd_all.shape[0])
 for label, mood in moods.items(): 
@@ -36,7 +36,7 @@ for (k,v) in c.most_common(10):
     print("%s:%d"%(k,v))
     
 #存储数据
-name ="data-word-count-2.csv"
+name ="data-word-count-13.csv"
 fw = open(name, 'w', encoding='utf-8')
 i = 1
 for (k,v) in c.most_common(len(c)):
@@ -65,4 +65,4 @@ def wordcloud_base() -> WordCloud:
         .set_global_opts(title_opts=opts.TitleOpts(title='词云图'))
     )
     return c
-wordcloud_base().render('微博评论情感分析词云图-2.html')
+wordcloud_base().render('微博评论情感分析词云图-13.html')

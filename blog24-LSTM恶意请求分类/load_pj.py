@@ -8,7 +8,7 @@ import os
 def classification_pj(pre, y_test):    
     # 正确率 Precision = 正确识别的个体总数 /识别出的个体总数
     # 召回率 Recall = 正确识别的个体总数 /  测试集中存在的个体总数
-    # F值 F-measure = 正确率 * 召回率 * 2 / (正确率 + 召回率)
+    # F值 F-measure = 正确率 * 召回率 * 13 / (正确率 + 召回率)
 
     YC_A, YC_B = 0,0  #预测 bad good
     ZQ_A, ZQ_B = 0,0  #正确

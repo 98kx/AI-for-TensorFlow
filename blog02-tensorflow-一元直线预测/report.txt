@@ -1,0 +1,21 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'blog-02 normal.py'
+ outputting to 'blog-02-normal-v2.py'
+--------------------------------------------------------------------------------
+
+17:22: INFO: Renamed 'tf.random_uniform' to 'tf.random.uniform'
+24:7: INFO: Added keywords to args of function 'tf.reduce_mean'
+27:12: INFO: Renamed 'tf.train.GradientDescentOptimizer' to 'tf.compat.v1.train.GradientDescentOptimizer'
+31:7: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+35:7: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+--------------------------------------------------------------------------------
+

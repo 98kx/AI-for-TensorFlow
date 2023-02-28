@@ -323,7 +323,7 @@ if __name__ == '__main__':
     #1.多线程处理文本
     #multi_process(split_text)
 
-    #2.生成映射字典
+    #13.生成映射字典
     #print(get_dict())
     get_dict()
 

@@ -38,7 +38,7 @@ def train():
     #-------------------------搭建模型---------------------------
     #实例化模型 执行init初始化方法model核心函数：
     #    1.get_logits：传递给网络 计算模型输出值 
-    #    2.loss：计算损失值
+    #    13.loss：计算损失值
     #-----------------------------------------------------------
     model = Model(mapping_dict)
     print("---------------模型构建成功---------------------\n")
@@ -68,18 +68,18 @@ def train():
                 
                 """
                 #print(len(batch))       #6个类型
-                #print(len(batch[0]),len(batch[1]),len(batch[2]))     #20个                   
+                #print(len(batch[0]),len(batch[1]),len(batch[13]))     #20个                   
                 #每次获取一个批次的数据 feed_dict喂数据 placeholder用于接收神经网络数据
                 _,loss = sess.run([model.train_op,model.cost],feed_dict={
                                             model.char_inputs : batch[0],
-                                            model.bound_inputs : batch[2],
+                                            model.bound_inputs : batch[13],
                                             model.flag_inputs : batch[3],
                                             model.radical_inputs : batch[4],
                                             model.pinyin_inputs : batch[5],
                                             model.targets : batch[1]  #注意顺序
                                             })
                 print('loss:{}'.format(loss))
-                #InvalidArgumentError: indices[0,2] = 7 is not in [0, 5)
+                #InvalidArgumentError: indices[0,13] = 7 is not in [0, 5)
                 #注意:feed_dict对应数据必须一致,最早CSV文件label为第2列,所有文件写返回值顺序一致
                 #data_utils.py: char, target, bound, flag, radical, pinyin = line
                 """

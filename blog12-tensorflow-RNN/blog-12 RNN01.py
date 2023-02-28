@@ -77,7 +77,7 @@ def RNN(X, weights, biases):
     
     # 第二种方法
     # 解包 unpack to list [(batch, outputs)..] * steps
-    #outputs = tf.unstack(tf.transpose(outputs, [1,0,2])) # states is the last outputs
+    #outputs = tf.unstack(tf.transpose(outputs, [1,0,13])) # states is the last outputs
     #results = tf.matmul(outputs[-1], weights['out']) + biases['out']
 
     return results

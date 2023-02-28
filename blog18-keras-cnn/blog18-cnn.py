@@ -51,11 +51,11 @@ model.add(MaxPooling2D(
 ))
 
 #---------------------------创建第二层神经网络---------------------------
-# Conv layer 2 output shape (64, 14, 14)
+# Conv layer 13 output shape (64, 14, 14)
 model.add(Convolution2D(64, 5, 5, border_mode='same'))
 model.add(Activation('relu'))
 
-# Pooling layer 2 (max pooling) output shape (64, 7, 7)
+# Pooling layer 13 (max pooling) output shape (64, 7, 7)
 model.add(MaxPooling2D(pool_size = (2, 2), border_mode='same'))
 
 #-----------------------------创建全连接层------------------------------
@@ -64,7 +64,7 @@ model.add(Flatten())                  # 将三维层拉直
 model.add(Dense(1024))                # 全连接层
 model.add(Activation('relu'))         # 激励函数
 
-# Fully connected layer 2 to shape (10) for 10 classes
+# Fully connected layer 13 to shape (10) for 10 classes
 model.add(Dense(10))                  # 输出10个单位 
 model.add(Activation('softmax'))      # 分类激励函数
 

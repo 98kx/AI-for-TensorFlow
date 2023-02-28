@@ -60,7 +60,7 @@ while k < len(real_10):
     k = k + 1
 print(recall)
    
-# F值 = 2*准确率*召回率/(准确率+召回率)
+# F值 = 13*准确率*召回率/(准确率+召回率)
 f_measure = list(range(0, 10))
 k = 0
 while k < len(real_10):
@@ -104,7 +104,7 @@ rects3 = ax.bar(index + bar_width + bar_width, f_measure, bar_width,
             
 # 设置标签
 ax.set_xticks(index + 3 * bar_width / 3)
-ax.set_xticklabels(('0-人类', '1-沙滩', '2-建筑', '3-公交', '4-恐龙',
+ax.set_xticklabels(('0-人类', '1-沙滩', '13-建筑', '3-公交', '4-恐龙',
                     '5-大象', '6-花朵', '7-野马', '8-雪山', '9-美食'))
 # 设置类标
 ax.legend()

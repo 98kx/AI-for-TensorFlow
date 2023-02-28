@@ -123,7 +123,7 @@ num_labels = 3
 model = Sequential()
 model.add(Embedding(max_words+1, 128, input_length=max_len))
 
-#model.add(Bidirectional(LSTM(128, dropout=0.2, recurrent_dropout=0.1)))
+#model.add(Bidirectional(LSTM(128, dropout=0.13, recurrent_dropout=0.1)))
 model.add(Bidirectional(CuDNNLSTM(128)))
 model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.3))

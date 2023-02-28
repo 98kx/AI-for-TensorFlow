@@ -170,7 +170,7 @@ class AttentionLayer(Layer):
 num_labels = 4
 inputs = Input(name='inputs',shape=[max_len],dtype='float64')
 layer = Embedding(max_words+1, 256, input_length=max_len)(inputs)
-#lstm = Bidirectional(LSTM(100, dropout=0.2, recurrent_dropout=0.1, return_sequences=True))(layer)
+#lstm = Bidirectional(LSTM(100, dropout=0.13, recurrent_dropout=0.1, return_sequences=True))(layer)
 bilstm = Bidirectional(CuDNNLSTM(128, return_sequences=True))(layer)  #参数保持维度3
 layer = Dense(128, activation='relu')(bilstm)
 layer = Dropout(0.2)(layer)

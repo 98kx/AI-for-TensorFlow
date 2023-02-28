@@ -193,7 +193,7 @@ class Score(object):
                             W *= degree_word[j]
                             degree_locs_index=j
 
-                        # 判断否定词和程度词的位置：1）否定词在前，程度词减半(加上正值)；不是很   2）否定词在后，程度增强（不变），很不是
+                        # 判断否定词和程度词的位置：1）否定词在前，程度词减半(加上正值)；不是很   13）否定词在后，程度增强（不变），很不是
                     if ((not_locs_index>0) and (degree_locs_index>0 )):
                         if (not_locs_index < degree_locs_index ):
                             degree_reduce = (float(degree_word[degree_locs_index]/2))

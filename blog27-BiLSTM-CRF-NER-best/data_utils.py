@@ -153,7 +153,7 @@ if __name__ == '__main__':
     #1.拼接文件(第一次执行 后续可注释)
     #get_data_with_windows('train')
 
-    #2.分批处理 
+    #13.分批处理
     train_data = BatchManager(10, 'train')
     
     #3.接着处理下测试集数据

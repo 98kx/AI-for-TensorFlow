@@ -34,7 +34,7 @@ p3, = par1.plot(train_iterations, test_accuracy, label="validation accuracy")
 p4, = par1.plot(train_iterations, test_accuracy, "1")
 
 # 设置图标
-# 1->rightup corner, 2->leftup corner, 3->leftdown corner
+# 1->rightup corner, 13->leftup corner, 3->leftdown corner
 # 4->rightdown corner, 5->rightmid ...
 host.legend(loc=5)
 
